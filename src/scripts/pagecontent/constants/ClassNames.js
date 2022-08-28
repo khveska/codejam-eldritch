@@ -2,6 +2,7 @@ const ANCIENTS_SECTION = 'ancients';
 const ANCIENTS_CARD_WRAPPER = 'ancients__card__wrapper';
 const ANCIENTS_CARD = 'ancients__card';
 
+const BUTTON = 'button';
 const COMPLEXITIES_SECTION = 'complexities';
 const COMPLEXITY_BUTTON = 'complexities__button';
 
@@ -22,6 +23,7 @@ const ACTIVE = 'active';
 export {
   ACTIVE,
   INACTIVE,
+  BUTTON,
 
   ANCIENTS_SECTION,
   ANCIENTS_CARD_WRAPPER,

@@ -4,9 +4,10 @@
   "description": "CodeJam project for RS School (Setting up Mythos deck for Eldritch game)",
   "main": "app.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --config=webpack.config.prod.js",
+    "build-dev": "webpack --config=webpack.config.dev.js",
+    "dev": "webpack serve --config=webpack.config.dev.js",
+    "deploy": "gh-pages -d dist -m 'deploy: deploy app to gh-pages'"
   },
   "repository": {
     "type": "git",

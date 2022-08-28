@@ -1,6 +1,6 @@
 import gameLevelObj from '../GameLevel';
 import GameLevels from '../../../data/GameLevels';
-import { ACTIVE, INACTIVE, COMPLEXITIES_SECTION, COMPLEXITY_BUTTON } from '../constants/ClassNames';
+import { ACTIVE, INACTIVE, COMPLEXITIES_SECTION, COMPLEXITY_BUTTON, BUTTON } from '../constants/ClassNames';
 
 import { activateShuffleDeckButton } from './shuffleDeckActions';
 import { hideMythosCards } from './mythosCardsActions';
@@ -13,6 +13,7 @@ export default function showGameLevelButtons() {
   Object.values(GameLevels).forEach((gameLevel) => {
     const complexityButton = document.createElement('button');
 
+    complexityButton.classList.add(BUTTON);
     complexityButton.classList.add(COMPLEXITY_BUTTON);
     complexityButton.textContent = gameLevel.name;
     complexitiesSection.appendChild(complexityButton);
