@@ -2,10 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: path.resolve(__dirname, 'src/scripts/app.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/codejam-eldritch/',
     filename: 'app.[contenthash].js',
     clean: true,
     assetModuleFilename: 'assets/[name][ext]',

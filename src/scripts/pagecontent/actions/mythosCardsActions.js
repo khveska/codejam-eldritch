@@ -31,7 +31,7 @@ export default function initMythosCardsEvents() {
     const curCard = Deck.nextCard();
 
     setBackground(cardOpened, curCard.cardFace);
-    updateStageCounter(curCard.color, curStage, StageCounters.nextCounter(curCard.color, curStage))
+    updateStageCounter(curCard.color, curStage, StageCounters.nextCounter(curCard.color, curStage));
   });
 }
 
@@ -41,6 +41,7 @@ export function showMythosCards() {
   shuffledDeckCardsWrapper.classList.add(DECK_START);
   cardClosedWrapper.classList.remove(DECK_FINISH);
   cardOpenedWrapper.classList.add(DECK_START);
+  cardOpened.style.backgroundImage = 'none';
 }
 
 export function hideMythosCards() {
