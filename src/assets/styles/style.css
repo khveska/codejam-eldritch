@@ -1,0 +1,375 @@
+@font-face {
+  font-family: 'NK Slavjanica';
+  font-weight: normal;
+  src: url('../fonts/nk_slavj.ttf') format('truetype'), url('../fonts/nk_slavj.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Alfios';
+  font-weight: normal;
+  src: url('../fonts/Alfios_R.ttf') format('truetype'), url('../fonts/Alfios_R.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Alfios';
+  font-weight: bold;
+  src: url('../fonts/Alfios_B.ttf') format('truetype'), url('../fonts/Alfios_B.otf') format('opentype');
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --default-font-size: 10px;
+  --primary-color: #d3d3d3;
+
+  --header-font: 4.5rem 'NK Slavjanica', serif;
+  --main-font: 1rem 'Alfios', serif;
+
+  --ancient-card-shadow: inset 0.15rem 0.15rem 0.3rem black, inset -0.15rem -0.15rem 0.3rem black;
+  --mythos-card-shadow: 0.15rem 0.15rem 0.3rem black;
+
+  --secondary-color: rgba(211, 211, 211, 0.8);
+  --tertiary-color: #c7834e;
+
+  --primary-transform: scale(1.1);
+  --primary-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  --secondary-transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, color 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  --card-transition: background-image 0.15s ease-in-out;
+  --card-wrapper-transition: all 0.2s ease-in-out;
+
+  --inactive-opacity: 0.5;
+}
+
+html {
+  overflow: hidden;
+  min-height: 100vh;
+
+  font-size: var(--default-font-size);
+}
+
+body {
+  background: url(../img/home.png) no-repeat center/cover;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 144rem;
+  min-height: 100vh;
+  padding: 1rem 3rem;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__name {
+  font: var(--header-font);
+  color: var(--primary-color);
+}
+
+.header__description {
+  font: var(--main-font);
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  opacity: 0.7;
+}
+
+/* Main Styles */
+.main {
+  flex: 1;
+
+  display: flex;
+  padding-top: 1rem;
+}
+
+/* Ancient Styles */
+.ancients {
+  flex: 1 0 40%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  column-gap: 4rem;
+  row-gap: 2vh;
+}
+
+.ancients__card__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 28rem;
+  width: 22rem;
+
+  padding: 0.7rem;
+  padding-left: 1rem;
+
+  background: url(../img/controls/card-tile.png) no-repeat center;
+  background-size: 100% 100%;
+
+  transition: var(--primary-transition);
+}
+
+.ancients__card__wrapper.inactive {
+  opacity: var(--inactive-opacity);
+}
+
+.ancients__card__wrapper:hover {
+  cursor: pointer;
+  transform: var(--primary-transform);
+}
+
+.ancients__card__wrapper.inactive:hover {
+  opacity: 1;
+}
+
+.ancients__card {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 1.5rem;
+  box-shadow: var(--ancient-card-shadow);
+
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+/* Complexities Styles */
+
+.complexities {
+  flex: 1 0 20%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  padding-top: 2rem;
+  padding-bottom: 7rem;
+}
+
+.complexities__button {
+  height: 4rem;
+  width: 22rem;
+  padding: 1.2rem 5rem;
+
+  border: none;
+  outline: none;
+
+  font-family: 'Alfios';
+  font-size: 1.7rem;
+  line-height: 1.9rem;
+  text-align: center;
+  color: var(--secondary-color);
+
+  background: url(../img/controls/button.png) no-repeat center/cover;
+
+  transition: var(--secondary-transition);
+}
+
+.complexities__button.inactive {
+  opacity: var(--inactive-opacity);
+}
+
+.complexities__button:hover,
+.complexities__button.active {
+  cursor: pointer;
+  color: var(--tertiary-color);
+  background-image: url(../img/controls/button-clicked.png);
+}
+
+.complexities__button.inactive:hover {
+  opacity: 1;
+}
+
+/* Deck Styles */
+
+.shuffled-deck {
+  flex: 1 0 40%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shuffled-deck__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Stage Counters Styles */
+
+.stage {
+  display: flex;
+  align-items: center;
+  padding-right: 4rem;
+}
+
+.stage__header {
+  flex: 1 0 40%;
+
+  padding-right: 2rem;
+
+  color: var(--tertiary-color);
+  font-family: 'Alfios';
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: right;
+}
+
+.stage__cards-counters {
+  display: flex;
+  gap: 2rem;
+}
+
+.stage__cards-counters__color-counter {
+  height: 4rem;
+  width: 4rem;
+
+  font-family: 'NK Slavjanica';
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--tertiary-color);
+
+  padding: 0.65rem 1.3rem;
+  text-align: center;
+}
+
+.stage__cards-counters__color-counter.green {
+  background: url(../img/controls/green-counter.png) no-repeat center/cover;
+}
+
+.stage__cards-counters__color-counter.brown {
+  background: url(../img/controls/brown-counter.png) no-repeat center/cover;
+}
+
+.stage__cards-counters__color-counter.blue {
+  background: url(../img/controls/blue-counter.png) no-repeat center/cover;
+}
+
+/* Deck Shuffle Styles */
+
+.shuffle-deck-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 4rem;
+  width: 40%;
+
+  border: none;
+  outline: none;
+
+  margin: 2rem 0rem;
+
+  font-family: 'Alfios';
+  font-size: 1.7rem;
+  color: var(--tertiary-color);
+
+  background: url(../img/controls/shuffle-button.png) no-repeat center;
+  background-size: 100% 100%;
+
+  transition: var(--secondary-transition);
+}
+
+.shuffle-deck-button.inactive {
+  opacity: var(--inactive-opacity);
+}
+
+.shuffle-deck-button:hover {
+  cursor: pointer;
+  background-image: url(../img/controls/shuffle-button-clicked.png);
+}
+
+.shuffle-deck-button.active {
+  cursor: auto;
+  background-image: url(../img/controls/shuffle-button-clicked.png);
+  opacity: var(--inactive-opacity);
+}
+
+.shuffle-deck-button.inactive:hover {
+  cursor: auto;
+  background-image: url(../img/controls/shuffle-button.png);
+}
+
+.shuffled-deck__cards__wrapper {
+  display: flex;
+  gap: 4rem;
+}
+
+.shuffled-deck__cards__wrapper.inactive {
+  opacity: 0;
+}
+
+.shuffled-deck__cards__wrapper.deck-start,
+.shuffled-deck__cards__wrapper.deck-finish {
+  gap: 0;
+}
+
+.card__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 29rem;
+  width: 21rem;
+
+  padding: 0.7rem;
+  padding-left: 1rem;
+
+  background: url(../img/controls/card-tile-no-glow.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+.card-closed__wrapper:hover {
+  cursor: pointer;
+}
+
+.card-opened__wrapper.deck-start,
+.card-closed__wrapper.deck-finish {
+  padding: 0;
+  width: 0;
+}
+
+.card-closed__wrapper,
+.card-opened__wrapper:not(.deck-start) {
+  transition: var(--card-wrapper-transition);
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 101% 101%;
+
+  border-radius: 1.5rem;
+  box-shadow: var(--mythos-card-shadow);
+
+  transition: var(--card-transition);
+}
+
+.card-closed {
+  background-image: url(../img/mythosCardBackground.png);
+}
+
+.card-opened {
+  background-image: url(../img/cards/mythos/blue/blue1.png);
+}
