@@ -23,15 +23,18 @@ export default function initMythosCardsEvents() {
     if (Deck.isEnd()) {
       cardClosedWrapper.classList.add(DECK_FINISH);
       shuffledDeckCardsWrapper.classList.add(DECK_FINISH);
-    } else {
+    }
+    if (shuffledDeckCardsWrapper.classList.contains(DECK_START)) {
       shuffledDeckCardsWrapper.classList.remove(DECK_START);
       cardOpenedWrapper.classList.remove(DECK_START);
     }
+
     const curStage = Deck.getStage();
     const curCard = Deck.nextCard();
 
-    setBackground(cardOpened, curCard.cardFace);
-    updateStageCounter(curCard.color, curStage, StageCounters.nextCounter(curCard.color, curStage));
+    setBackground(cardOpened, curCard.cardFace, () =>
+      updateStageCounter(curCard.color, curStage, StageCounters.nextCounter(curCard.color, curStage))
+    );
   });
 }
 

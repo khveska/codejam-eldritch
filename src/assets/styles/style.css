@@ -37,8 +37,8 @@
 
   --primary-transform: scale(1.1);
   --primary-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  --secondary-transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, color 0.3s ease-in-out,
-    opacity 0.3s ease-in-out;
+  --secondary-transition: background-image 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out,
+    color 0.3s ease-in-out, opacity 0.3s ease-in-out;
   --card-transition: background-image 0.15s ease-in-out;
   --card-wrapper-transition: all 0.2s ease-in-out;
 
@@ -46,7 +46,7 @@
 }
 
 html {
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: 100vh;
 
   font-size: var(--default-font-size);
@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  max-width: 144rem;
+  max-width: 156rem;
   min-height: 100vh;
   padding: 1rem 3rem;
   margin: 0 auto;
@@ -378,4 +378,62 @@ body {
 
 .card-closed {
   background-image: url(../img/mythosCardBackground.png);
+}
+
+@media (min-width: 1450px) {
+  :root {
+    --default-font-size: 11px;
+  }
+
+  .wrapper {
+    padding: 1rem 5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --default-font-size: 12px;
+  }
+}
+
+@media (max-width: 1270px) {
+  :root {
+    --default-font-size: 8px;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --default-font-size: 6px;
+  }
+}
+
+@media (max-width: 770px) {
+  :root {
+    --default-font-size: 4px;
+  }
+}
+
+@media (max-width: 650px) {
+  .shuffled-deck__cards__wrapper {
+    flex-direction: column;
+  }
+
+  .wrapper {
+    padding: 1rem 1.5rem;
+  }
+
+  .ancients {
+    flex: 1 0 35%;
+    justify-content: center;
+  }
+
+  .shuffled-deck {
+    flex: 1 0 35%;
+  }
+
+  .card-opened__wrapper.deck-start,
+  .card-closed__wrapper.deck-finish {
+    height: 0;
+  }
 }
